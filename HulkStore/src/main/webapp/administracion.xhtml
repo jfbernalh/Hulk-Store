@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+     
+    <body>
+   		<ui:composition template="templates/template.xhtml">
+   		<ui:define name="content">
+   		<h:panelGroup id="texto-tabla" layout="block">
+   			Esta es la ventana para la administración de productos, 
+   			aquí podrás crear productos, actualizarlos y eliminarlos.   			 		
+   		</h:panelGroup>
+   		
+		<p:separator />
+   		<h:form>
+   		<h:panelGroup id="btn-crear" layout="block">
+	   		<h:commandButton id="crearbtn" value="Ingresar Producto" action="crear" style="margin:50px; width:125px; height:50px;"/>  		
+   		</h:panelGroup>
+   		</h:form>
+   			
+   		
+   		<h:panelGroup id="data-table" layout="block">
+		
+			<p:dataTable id="data" var="item" value="#{listarProducto.listaProductos}" rowKey="#{item.id}" emptyMessage="No hay productos disponibles">
+				<p:column headerText="Nombre">
+					<h:outputText value="#{item.nombreProducto}"/>
+				</p:column>
+				
+				<p:column headerText="Tipo de producto">
+					<h:outputText value="#{item.tipoProducto}"/>
+				</p:column>
+				
+				<p:column headerText="Cantidad en inventario">
+					<h:outputText value="#{item.cantidadInventario}"/>
+				</p:column>
+				
+				<p:column headerText="Precio">
+					<h:outputText value="#{item.precioProducto}"/>
+				</p:column>
+				
+				<p:column headerText="Acciones" style="text-align:center;">
+					<p:button icon="ui-icon-delete" value="Eliminar" outcome="eliminar">
+						<f:param name="prodId" value="#{item.id}"/>
+					</p:button>
+					<p:spacer width="10"/>
+					<p:button icon="ui-icon-update" value="Actualizar" outcome="actualizar">
+						<f:param name="prodId" value="#{item.id}"/>
+					</p:button>
+				</p:column>
+				
+			</p:dataTable>
+			</h:panelGroup>
+      		</ui:define>
+   		</ui:composition>
+   		
+   </body>
+</html>

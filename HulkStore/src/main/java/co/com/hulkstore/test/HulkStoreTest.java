@@ -1,0 +1,14 @@
+package co.com.hulkstore.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class HulkStoreTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

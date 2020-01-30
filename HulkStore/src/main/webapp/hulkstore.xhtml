@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+   
+   <body>
+   		<ui:composition template="templates/template.xhtml">
+   		<ui:define name="content">
+   		
+   		<div>
+   			<h1>Bienvenidos al sistema de administración de Hulk Store</h1>
+   		</div>
+   		
+   		<h:panelGroup layout="block">
+   			<p>En este aplicativo se controlará el inventario de los productos que
+   			   se comercializan en nuestra tienda.   				
+   			</p>   		
+   		</h:panelGroup>
+   		
+   		<br/>
+   		
+   		<h:form>
+   			<h:commandButton id="ingresarbtn" 
+   							 value="Ingresar" 
+   							 action="administracion" style="margin:50px; width:125px; 
+   							 height:50px;"/> 
+   			
+   		</h:form>
+   		
+   		
+   		</ui:define>
+   		</ui:composition>
+   		
+   </body>
+   
+   
+   
+</html>	

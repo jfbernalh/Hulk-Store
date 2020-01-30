@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:define name="content">
+		
+			<h:panelGroup id="texto-tabla" layout="block">
+	   			<h1>Crear nuevos productos</h1>			 		
+	   		</h:panelGroup>
+	   		
+	   		<p:separator />
+
+			<p:messages id="messages" showDetail="true" closable="true">
+						<p:autoUpdate />
+			</p:messages>
+			
+			
+			<h:form id="form">
+				<h:panelGrid id="grid" columns="5" cellpadding="4">
+									
+					<p:outputLabel for="nomb-prod" value="Nombre: "
+						style="font-weight:bold;" />
+					<p:inputText id="nomb-prod"
+						value="#{crearProducto.producto.nombreProducto}" required="true" />
+					<p:message for="nomb-prod" />
+
+					<p:outputLabel for="sele-prod" value="Tipo de producto: " style="font-weight:bold;" />
+					<p:selectOneMenu value="#{crearProducto.productoSeleccionado}"
+						required="true">
+						<f:selectItem id="sele-prod" itemLabel="Seleccionar tipo de producto"
+							itemValue="null" />
+						<f:selectItems value="#{crearProducto.tipoProductos}" />
+						<p:message for="sele-prod" />
+					</p:selectOneMenu>
+
+					<p:outputLabel for="numero-prod" value="Número de unidades: "
+						style="font-weight:bold;" />
+					<p:inputText id="numero-prod" value="#{crearProducto.producto.cantidadInventario}"
+						required="true" />
+					<p:message for="numero-prod" />
+					
+					<p:outputLabel for="precio-prod" value="Precio: "
+						style="font-weight:bold;" />
+					<p:inputText id="precio-prod" value="#{crearProducto.producto.precioProducto}"
+						required="true" />
+					<p:message for="precio-prod" />
+						
+				</h:panelGrid>
+				
+				<p:separator />
+				<br/>
+				<p:commandButton value="Registrar Producto"
+					action="#{crearProducto.create}" ajax="true" />
+				<p:spacer width="10" />
+				<p:button outcome="administracion" value="Cancelar" />
+
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
